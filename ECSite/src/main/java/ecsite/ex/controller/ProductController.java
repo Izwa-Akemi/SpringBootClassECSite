@@ -41,6 +41,7 @@ public class ProductController {
 			return "product_list.html";
 		}		
 	}
+	
 	@GetMapping("/product/register")
 	public String getProductRegisterPage(Model model) {
 		AdminEntity admin = (AdminEntity)session.getAttribute("admin");
