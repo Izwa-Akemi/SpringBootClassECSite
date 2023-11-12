@@ -39,15 +39,11 @@ public class ProductService {
 	}
 	
 	public boolean editProduct(Long productId,String productName, String productCategory, String productImage, String productDescription) {		
-		ProductEntity productList = productDao.findByProductId(productId);
-		if(productList == null) {
+		
+		if(productId == null) {
 			return false;
 		}else {
-			productList.setProductName(productName);
-			productList.setProductCategory(productCategory);
-			productList.setProductImage(productImage);
-			productList.setProductDescription(productDescription);
-			productDao.save(productList);
+			productDao.save(new ProductEntity(productId,productName,productName,productImage,productDescription));
 			return true;
 		}
 	}
